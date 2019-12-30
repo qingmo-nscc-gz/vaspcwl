@@ -16,6 +16,16 @@ steps:
       POTCAR: INPUT
       KPOINTS: INPUT
     out: [step1file]
+
+  MagneticTesting:
+    run: 1-2/1-3/13.cwl
+    in: 
+      CONTCAR: GeometryOptimization/step1file
+      POTCAR: GeometryOptimization/step1file
+      INCAR: {default: INCAR}
+      KPOINTS: {default: KPOINTS}
+    out: [step1file]
+
   ElasticCalculation:
     run: 1-2/12.cwl
     in:
@@ -29,6 +39,7 @@ steps:
     in:
       OUTCAR: ElasticCalculation/step1file
     out: [yh2]
+
   MagneticCalculation:
     run: 1-2/1-3/13.cwl
     in: 
@@ -49,6 +60,7 @@ steps:
       POTCAR: GeometryOptimization/step1file
       INCAR: {default: INCAR}
       KPOINTS: {default: KPOINTS}
+      MagneticTesting: MagneticTesting/step1file
     out: [step1file]
   BandStructureCalculation:
     run: 1-2/1-3/2-1/3-1/31.cwl
