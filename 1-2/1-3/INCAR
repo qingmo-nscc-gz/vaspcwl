@@ -1,0 +1,30 @@
+Global Parameters
+  ISTART =  0           #(Read existing wavefunction; if there)
+  #ISPIN =  2           #(Spin polarised DFT)
+  # ICHARG =  11        #(Non-self-consistent: GGA/LDA band structures)
+  LREAL  = Auto         #(Projection operators: automatic)
+  ENCUT  =  520         #(Cut-off energy for plane wave basis set, in eV)
+  PREC   =  Accurate    #(Precision level)
+  LWAVE  = .F.          #(Write WAVECAR or not)
+  LCHARG = .F.          #(Write CHGCAR or not)
+  ADDGRID= .T.          #(Increase grid; helps GGA convergence)
+  NPAR   = 4            #(Max is no. nodes; don't set for hybrids)
+  NBLOCK = 1            #(time-step to write CONTCAR, CHG, CHGCAR & PCDAT)
+  INIWAV = 1            #(initial electr wf.: 0-lowe 1-rand)
+
+Electronic Relaxation
+  ISMEAR =  -5            #(Gaussian smearing; metals:1)
+  #SIGMA  =  0.2          #(Smearing value in eV; metals:0.2)
+  ALGO = Fast
+  NELM   =  60           #(Max electronic SCF steps)
+  NELMIN =  6            #(Min electronic SCF steps)
+  EDIFF  =  1E-05        #(SCF energy convergence; in eV)
+  # GGA  =  PS           #(PBEsol exchange-correlation)
+
+Ionic Relaxation         #
+  NSW    =  150          #(Max electronic SCF steps)
+  IBRION =  2            #(Algorithm: 0-MD; 1-Quasi-New; 2-CG)
+  ISIF   =  3           #(Stress/relaxation: 2-Ions, 3-Shape/Ions/V, 4-Shape/Ions)
+  EDIFFG = -1.5E-02      #(Ionic force convergence; eV/AA)
+  POTIM = 0.2            #(time-step for ionic-motion,0.05 A stepwidth)
+  # ISM =  2             #(Symmetry: 0=none; 2=GGA; 3=hybrids)

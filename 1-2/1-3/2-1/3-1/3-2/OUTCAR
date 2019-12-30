@@ -1,0 +1,6 @@
+ vasp.5.4.1 24Jun15 (build Nov 23 2015 09:58:10) complex                        
+  
+ executed on             LinuxIFC date 2019.12.30  12:14:25
+ running on   24 total cores
+ distrk:  each k-point on   24 cores,    1 groups
+ distr:  one band on NCORES_PER_BAND=   6 cores,    4 groups

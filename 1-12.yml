@@ -1,0 +1,9 @@
+cpf1:
+  class: File
+  path: /WORK/nscc-gz_material_4/vasp/1-1/check.txt
+cpf2:
+  class: File
+  path: /WORK/nscc-gz_material_4/vasp/1-1/yh.txt
+cpf3:
+  class: File
+  path: /WORK/nscc-gz_material_4/vasp/1-1/mk.txt
