@@ -16,27 +16,27 @@ steps:
       12f: step1/step1file
     out: [step2file]
   step3:
-    run: 1-3/13.cwl
+    run: 1-2/1-3/13.cwl
     in: 
       1f: step2/step2file
     out: [step3file]
   step4:
-    run: 2-1/21.cwl
+    run: 1-2/1-3/2-1/21.cwl
     in:
       21f: step3/step3file
     out: [step4file]
   step5:
-    run: 3-1/31.cwl
+    run: 1-2/1-3/2-1/3-1/31.cwl
     in:
       31f: step4/step4file
     out: [step5file]
   step6:
-    run: 3-2/32.cwl
+    run: 1-2/1-3/2-1/3-1/3-2/32.cwl
     in:
       32f: step5/step5file
     out: [step6file]
   step7:
-    run: 3-3/33.cwl
+    run: 1-2/1-3/2-1/3-1/3-2/3-3/33.cwl
     in:
       33f: step6/step6file
     out: [step7file]
