@@ -22,22 +22,32 @@ steps:
       POTCAR: POTCAR
       KPOINTS: KPOINTS
     out: [step1file]
-  ElasticProperties:
+  ElasticCalculation:
     run: 1-2/12.cwl
     in:
       CONTCAR: GeometryOptimization/step1file
       POTCAR: GeometryOptimization/step1file
       INCAR: {default: INCAR}
       KPOINTS: {default: KPOINTS}
+    out: [step1file]
+  ElasticProperties:
+    run: 1-2/122.cwl
+    in:
+      OUTCAR: ElasticCalculation/step1file
     out: 
       OUTCAR: step1file
-  MagneticProperties:
+  MagneticCalculation:
     run: 1-2/1-3/13.cwl
     in: 
       CONTCAR: GeometryOptimization/step1file
       POTCAR: GeometryOptimization/step1file
       INCAR: {default: INCAR}
       KPOINTS: {default: KPOINTS}
+    out: [step1file]
+  MagneticProperties:
+    run: 1-2/1-3/133.cwl
+    in: 
+      OUTCAR: MagneticCalculation/step1file
     out: [step1file]
   StaticCalculation:
     run: 1-2/1-3/2-1/21.cwl
@@ -47,7 +57,7 @@ steps:
       INCAR: {default: INCAR}
       KPOINTS: {default: KPOINTS}
     out: [step1file]
-  BandStructure:
+  BandStructureCalculation:
     run: 1-2/1-3/2-1/3-1/31.cwl
     in:
       CONTCAR: StaticCalculation/step1file
@@ -55,7 +65,12 @@ steps:
       INCAR: {default: INCAR}
       KPOINTS: {default: KPOINTS}
     out: [step1file]
-  DensityOfStates:
+  BandStructure:
+    run: 1-2/1-3/2-1/3-1/311.cwl
+    in:
+      OUTCAR: BandStructureCalculation/step1file
+    out: [step1file]
+  DensityOfStatesCalculation:
     run: 1-2/1-3/2-1/3-1/3-2/32.cwl
     in:
       CONTCAR: StaticCalculation/step1file
@@ -63,13 +78,24 @@ steps:
       INCAR: {default: INCAR}
       KPOINTS: {default: KPOINTS}
     out: [step1file]
-  OpticalProperties:
+  DensityOfStates:
+    run: 1-2/1-3/2-1/3-1/3-2/322.cwl
+    in:
+      OUTCAR: DensityOfStatesCalculation/step1file
+    out: [step1file]
+  OpticalCalculation:
     run: 1-2/1-3/2-1/3-1/3-2/3-3/33.cwl
     in:
-      CONTCAR: StaticCalculation/step1file
+      OUTCAR: StaticCalculation/step1file
       POTCAR: StaticCalculation/step1file
       INCAR: {default: INCAR}
       KPOINTS: {default: KPOINTS}
+    out: [step1file]
+  OpticalProperties:
+    run: 1-2/1-3/2-1/3-1/3-2/3-3/333.cwl
+    in:
+      OUTCAR: OpticalCalculation/step1file
+      runvasp.xml: OpticalCalculation/step1file
     out: [step1file]
 outputs:
   OUTPUT:
