@@ -3,13 +3,7 @@
 cwlVersion: v1.0
 class: Workflow
 inputs: 
-  INCAR:
-    type: File
-  POSCAR:
-    type: File
-  POTCAR:
-    type: File
-  KPOINTS:
+  INPUT:
     type: File
 requirements:
   SubworkflowFeatureRequirement: {}
@@ -17,10 +11,10 @@ steps:
   GeometryOptimization:
     run: 11.cwl
     in:
-      INCAR: INCAR
-      POSCAR: POSCAR
-      POTCAR: POTCAR
-      KPOINTS: KPOINTS
+      INCAR: INPUT
+      POSCAR: INPUT
+      POTCAR: INPUT
+      KPOINTS: INPUT
     out: [step1file]
   ElasticCalculation:
     run: 1-2/12.cwl
