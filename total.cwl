@@ -29,7 +29,8 @@ steps:
       POTCAR: GeometryOptimization/step1file
       INCAR: {default: INCAR}
       KPOINTS: {default: KPOINTS}
-    out: [step1file]
+    out: 
+      OUTCAR: step1file
   MagneticProperties:
     run: 1-2/1-3/13.cwl
     in: 
