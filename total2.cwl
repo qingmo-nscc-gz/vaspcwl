@@ -2,13 +2,25 @@
 
 cwlVersion: v1.0
 class: Workflow
-inputs: []
+inputs: 
+  INCAR:
+    type: File
+  POSCAR:
+    type: File
+  POTCAR:
+    type: File
+  KPOINTS:
+    type: File
 requirements:
   SubworkflowFeatureRequirement: {}
 steps:
   GeometryOptimization:
     run: 11.cwl
-    in: []
+    in:
+      INCAR: INCAR
+      POSCAR: POSCAR
+      POTCAR: POTCAR
+      KPOINTS: KPOINTS
     out: [step1file]
   ElasticProperties:
     run: 1-2/12.cwl
@@ -43,5 +55,5 @@ steps:
 outputs:
   stepsfile:
     type: File[]
-    outputSource: [BandStructure/step1file, DensityOfStates/step1file, OpticalProperties/step1file]
+    outputSource: [MagneticProperties/step1file, ElasticProperties/step1file, BandStructure/step1file, DensityOfStates/step1file, OpticalProperties/step1file]
   
