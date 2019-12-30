@@ -99,5 +99,5 @@ steps:
 outputs:
   OUTPUT:
     type: File[]
-    outputSource: [MagneticProperties/yh2, ElasticProperties/yh3, BandStructure/yh5, DensityOfStates/yh6, OpticalProperties/yh7]
+    outputSource: [MagneticProperties/yh3, ElasticProperties/yh2, BandStructure/yh5, DensityOfStates/yh6, OpticalProperties/yh7]
   
