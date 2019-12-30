@@ -5,6 +5,8 @@ class: Workflow
 inputs:
   step1file:
     type: File
+requirements:
+  SubworkflowFeatureRequirement: {}
 steps:
   step1:
     run: 11.cwl
