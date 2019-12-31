@@ -21,10 +21,11 @@ steps:
   GeometryOptimization:
     run: 11.cwl
     in:
-      INCAR: MagneticTesting/step1file
-      POSCAR: MagneticTesting/step1file
-      POTCAR: MagneticTesting/step1file
-      CONTCAR: MagneticTesting/step1file
+      INCAR: INPUT
+      POSCAR: INPUT
+      POTCAR: INPUT
+      KPOINTS: INPUT
+      MagneticTesting: MagneticTesting/step1file
     out: [step1file]
 
   ElasticCalculation:
@@ -45,7 +46,6 @@ steps:
     in: 
       CONTCAR: GeometryOptimization/step1file
       POTCAR: GeometryOptimization/step1file
-      MagneticTesting: MagneticTesting/step1file
     out: [step1file]
   MagneticProperties:
     run: 1-2/1-3/133.cwl
@@ -57,7 +57,6 @@ steps:
     in:
       CONTCAR: GeometryOptimization/step1file
       POTCAR: GeometryOptimization/step1file
-      MagneticTesting: MagneticTesting/step1file
     out: [step1file]
   BandStructureCalculation:
     run: 1-2/1-3/2-1/3-1/31.cwl
