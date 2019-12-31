@@ -24,7 +24,7 @@ steps:
       POSCAR: INPUT
       POTCAR: INPUT
       KPOINTS: INPUT
-      INCAR: MagneticTesting/step1file
+      INCAR: MagneticTesting/yh3
     out: [step1file]
 
   ElasticCalculation:
