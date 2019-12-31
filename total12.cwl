@@ -8,15 +8,6 @@ inputs:
 requirements:
   SubworkflowFeatureRequirement: {}
 steps:
-  GeometryOptimization:
-    run: 11.cwl
-    in:
-      INCAR: MagneticTesting/step1file
-      POSCAR: MagneticTesting/step1file
-      POTCAR: MagneticTesting/step1file
-      CONTCAR: MagneticTesting/step1file
-      POTCAR: MagneticTesting/step1file
-    out: [step1file]
 
   MagneticTesting:
     run: 1-2/1-3/13.cwl
@@ -25,6 +16,15 @@ steps:
       POSCAR: INPUT
       POTCAR: INPUT
       KPOINTS: INPUT
+    out: [step1file]
+
+  GeometryOptimization:
+    run: 11.cwl
+    in:
+      INCAR: MagneticTesting/step1file
+      POSCAR: MagneticTesting/step1file
+      POTCAR: MagneticTesting/step1file
+      CONTCAR: MagneticTesting/step1file
     out: [step1file]
 
   ElasticCalculation:
