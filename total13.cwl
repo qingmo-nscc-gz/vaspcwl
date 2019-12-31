@@ -16,7 +16,7 @@ steps:
       POSCAR: INPUT
       POTCAR: INPUT
       KPOINTS: INPUT
-    out: [step1file]
+    out: [yh3]
 
   GeometryOptimization:
     run: 11.cwl
